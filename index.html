@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        <nav class="nav">
+            <ul>
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('summary')">Summary</a></li>
+                <li><a href="#" onclick="showSection('education')">Education</a></li>
+                <li><a href="#" onclick="showSection('skills')">Technical Skills</a></li>
+                <li><a href="#" onclick="showSection('experience')">Experience</a></li>
+                <li><a href="#" onclick="showSection('certifications')">Certifications</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container" id="container">
+        <div id="home" class="home-section">
+            <header>
+                <h1>V D PANDURANGA SAI GUPTHA</h1>
+                <p>8688670712 • saiguptha_v@srmap.edu.in</p>
+                <p><a href="https://www.linkedin.com/in/saiguptha2003/" target="_blank">LinkedIn</a> • <a href="https://github.com/saiguptha2003" target="_blank">GitHub</a></p>
+            </header>
+        </div>
+
+        <div id="summary" class="content-section">
+            <h2>Summary</h2>
+            <p>Motivated software engineer experienced in Java, C, C++, Python, Git, CI/CD, Jenkins, NodeJS, and Flask. Specialize in code optimization and front-end development, crafting user-friendly interfaces. Skilled in bridging design and functionality for exceptional user experiences. Proficient in the software development lifecycle, adept at agile methodologies. Demonstrated success from concept to deployment, emphasizing collaboration and adaptability.</p>
+        </div>
+
+        <div id="education" class="content-section">
+            <h2>Education</h2>
+            <p>BTech, Computer Science and Engineering Graduating June 2025</p>
+            <p>SRM AP University, Amaravati, Guntur 8.59 GPA</p>
+            <p>School of Engineering and Sciences</p>
+            <p>Relevant coursework: Advanced Computer Understanding and Introduction to Cloud Computing</p>
+        </div>
+
+        <div id="skills" class="content-section">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li>Blockchain: ethers.js, web3.js, web3.py, ThirdWeb SDK</li>
+                <li>Frameworks: Flask, Django, Express, ReactJS, FastAPI, ReactNative, Jinja, Jenkins CI/CD, GithubActions</li>
+                <li>Programming: Python, C, C++, Rust, SQL, Dart, Java, HTML, CSS, JavaScript, Bash, Typescript</li>
+                <li>Desktop Development: python tkinter, Java Swing, Bash</li>
+                <li>Databases: Firebase, MongoDB, MYSQL, SQLITE, Cloud Databases, MariaDB, MSSQL</li>
+                <li>Cloud Technologies: Google Cloud, Azure Cloud, AWS Cloud, Digital Ocean, Firebase, OpenStack</li>
+            </ul>
+        </div>
+
+        <div id="experience" class="content-section">
+            <h2>Experience</h2>
+            <h3>Self, Remote: ReactNative Android Developer</h3>
+            <p>Dec 2023 – Mar 2024</p>
+            <ul>
+                <li>Developed a self-project to address present sustainability and logistics challenges.</li>
+            </ul>
+            <h3>Kalpavriksham, Remote: Full Stack Developer</h3>
+            <p>June 2023 – Oct 2023</p>
+            <ul>
+                <li>Developed an E-Commerce Brokerage Website for university transactions, facilitating both producers and consumers. Adhered to C2C business model regulations and utilized Flask, Cloud, and structural analysis.</li>
+                <li>Implemented multi-client event handling and queue order management.</li>
+            </ul>
+            <h3>Government of Andhra Pradesh, Amaravati, AP: Analyst and Python Developer</h3>
+            <p>July 2023 – Aug 2023</p>
+            <ul>
+                <li>Collaborated with the Andhra Pradesh Government as a Python Data Analyst, focusing on understanding trends in Maternal Mortality Ratio (MMR) through time series analysis across districts.</li>
+            </ul>
+            <h3>Kartexa, Remote, India: Android Developer</h3>
+            <p>Mar 2023 – Aug 2023</p>
+            <ul>
+                <li>Played a key role in developing a cutting-edge dating app at Edflying, leading feature implementation and enhancing user experience.</li>
+            </ul>
+        </div>
+
+        <div id="certifications" class="content-section">
+            <h2>Certifications and Licenses</h2>
+            <p>Oracle University, Online: Oracle Cloud Infrastructure 2023 Certified Foundations Associate</p>
+            <p>May 2024</p>
+            <p>Oracle Cloud Infrastructure (OCI) Foundations certification validates fundamental OCI knowledge.</p>
+            <p>Postman, Online: Postman API Fundamentals Student Expert Badge</p>
+            <p>May 2024</p>
+            <p>This badge was awarded for demonstrating proficiency with APIs and Postman by completing foundational tasks in Postman and passing all tests with a submitted Postman Collection.</p>
+        </div>
+
+        <div class="color-dial">
+            <input type="color" id="color1" name="color1" value="#ff0000">
+            <input type="color" id="color2" name="color2" value="#0000ff">
+            <input type="color" id="color3" name="color3" value="#ffa500">
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+            if (sectionId !== 'home') {
+                document.getElementById('home').style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+            const color1 = document.getElementById('color1');
+            const color2 = document.getElementById('color2');
+            const color3 = document.getElementById('color3');
+
+            color1.addEventListener('input', updateStripColors);
+            color2.addEventListener('input', updateStripColors);
+            color3.addEventListener('input', updateStripColors);
+
+            function updateStripColors() {
+                const stripColor1 = color1.value;
+                const stripColor2 = color2.value;
+                const stripColor3 = color3.value;
+
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.style.setProperty('--strip-color-1', stripColor1);
+                    section.style.setProperty('--strip-color-2', stripColor2);
+                    section.style.setProperty('--strip-color-3', stripColor3);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
